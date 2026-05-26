@@ -28,10 +28,10 @@ app.post("/webhook/sosialbuzz", (req, res) => {
     console.log("[Webhook] Payload:", JSON.stringify(req.body));
 
     const { name, amount, message } = req.body;
-    if (!name || !amount) {
-        return res.status(400).json({ error: "Missing name or amount" });
-    }
-
+    // Jadi ini:
+if (!name || !amount) {
+    return res.status(200).json({ status: "ok (test ping)" });
+}
     const robloxUsername = parseRobloxUsername(message) || null;
     const donasi = {
         donor_name      : String(name),
